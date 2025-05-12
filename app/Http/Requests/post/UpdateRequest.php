@@ -53,8 +53,8 @@ class UpdateRequest extends FormRequest
 
     protected function prepareForValidation(){
         if (empty($this->input('slug')) && $this->has('title')) {
-            $slug = strtolower(str_replace(' ', '-', $this->input('title'))); // تحويل المسافات إلى شرطات
-            $slug = preg_replace('/[^a-z0-9\-]/', '', $slug); // إزالة الأحرف غير المسموح بها
+            $slug = strtolower(str_replace(' ', '-', $this->input('title')));
+            $slug = preg_replace('/[^a-z0-9\-]/', '', $slug);
             $this->merge([
                 'slug' => $slug,
             ]);
